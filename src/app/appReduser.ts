@@ -1,0 +1,1 @@
+// тут будет reducer: rootReducer

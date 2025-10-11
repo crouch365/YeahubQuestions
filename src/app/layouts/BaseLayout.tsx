@@ -1,5 +1,11 @@
+import { Header } from "@/widgets/header";
+
 function BaseLayout() {
-  return <div></div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 export default BaseLayout;

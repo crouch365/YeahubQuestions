@@ -10,4 +10,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    port: 3000, // Замените 5174 на желаемый номер порта
+  },
 });

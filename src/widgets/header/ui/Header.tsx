@@ -1,4 +1,4 @@
-import { NavMenu } from "@/features/navigation";
+import { NavMenu } from "@/shared/navigation";
 import styles from "./styles.module.css";
 
 const Header = () => {

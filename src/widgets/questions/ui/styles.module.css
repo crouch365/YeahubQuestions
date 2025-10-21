@@ -1,0 +1,9 @@
+.question__block {
+  margin: 30px;
+}
+
+.question__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

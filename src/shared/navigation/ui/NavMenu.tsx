@@ -32,9 +32,6 @@ const NavMenu = () => {
               </button>
             </div>
           </li>
-          <li className="nav_menu__item">
-            <div></div>
-          </li>
         </ul>
       </nav>
     </>

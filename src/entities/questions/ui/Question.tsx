@@ -1,10 +1,10 @@
 import { RatingAndDifficulty } from "@/shared/questions";
 import styles from "./styles.module.css";
-import type { Question } from "../model/questionsType";
 import { useState, useRef, useEffect } from "react";
+import type { IQuestion } from "../model/questionsType";
 
 interface QuestionProp {
-  question: Question;
+  question: IQuestion;
 }
 
 const Question = ({ question }: QuestionProp) => {

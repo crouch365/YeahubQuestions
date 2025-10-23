@@ -1,4 +1,4 @@
-export interface Question {
+export interface IQuestion {
   id: number;
   title: string;
   description: string;
@@ -12,3 +12,16 @@ export interface Question {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface QuestionsApiResponse {
+  data: IQuestion[];
+  total: number;
+  status: string;
+}
+
+export interface IFilters {
+  page: number;
+  limit: number;
+}
+
+export type ParamsType = Partial<IFilters>;

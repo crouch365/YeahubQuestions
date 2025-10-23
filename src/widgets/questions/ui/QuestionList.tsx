@@ -2,9 +2,14 @@ import { useGetQuestionsQuery } from "@/entities/questions/api/questionApi";
 
 import styles from "./styles.module.css";
 import { Question } from "@/entities/questions";
+import { Pagination } from "@/features/pagination";
+import { useAppSelector } from "@/app/appStore";
 
 const QuestionList = () => {
-  const { data, error, isLoading } = useGetQuestionsQuery();
+  const limit = 10;
+  const currentPage = useAppSelector((state) => state.pagination.currentPage);
+
+  const { data } = useGetQuestionsQuery({ page: currentPage, limit });
 
   console.log(data);
 
@@ -15,6 +20,7 @@ const QuestionList = () => {
           <Question key={question.id} question={question} />
         ))}
       </ul>
+      <Pagination total={data?.total ?? 0} limit={limit} />{" "}
     </div>
   );
 };

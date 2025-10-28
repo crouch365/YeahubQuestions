@@ -1,11 +1,13 @@
-import QuestionList from "@/widgets/questions/ui/QuestionList";
 import { Header } from "@/widgets/header";
+import { Outlet } from "react-router-dom";
 
 function BaseLayout() {
   return (
     <div>
       <Header />
-      <QuestionList />
+      <div>
+        <Outlet />
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { useGetQuestionsQuery } from "@/entities/questions/api/questionApi";
 
 import styles from "./styles.module.css";
 import { Question } from "@/entities/questions";
-import { Pagination } from "@/features/pagination";
+import { Pagination } from "@/features";
 import { useAppSelector } from "@/app/appStore";
 
 const QuestionList = () => {
@@ -10,6 +10,11 @@ const QuestionList = () => {
   const currentPage = useAppSelector((state) => state.pagination.currentPage);
 
   const { data } = useGetQuestionsQuery({ page: currentPage, limit });
+
+  //   const navigateTo = (news: INews) => {
+  //   dispatch(setCurrentNews(news));
+  //   navigate(`/news/${news.id}`);
+  // };
 
   console.log(data);
 

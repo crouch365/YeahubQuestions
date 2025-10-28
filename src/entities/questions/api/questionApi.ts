@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { ParamsType, QuestionsApiResponse } from "../model/questionsType";
+import { getQuestions } from "../model/questionsSlice";
 
-const BASE_URL = "https://api.yeatwork.ru/";
+const BASE_URL = import.meta.env.VITE_QUESTIONS_BASE_URL;
 
 export const questionsApi = createApi({
   reducerPath: "questionsApi",
@@ -21,8 +22,19 @@ export const questionsApi = createApi({
           },
         };
       },
+      async onQueryStarted(_arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          dispatch(getQuestions(data.data));
+        } catch (error) {
+          console.error("Ошибка при загрузке вопросов:", error);
+        }
+      },
+    }),
+    getQuestionById: build.query<QuestionsApiResponse, number>({
+      query: (id) => `questions/public-questions/${id}`,
     }),
   }),
 });
 
-export const { useGetQuestionsQuery } = questionsApi;
+export const { useGetQuestionsQuery, useGetQuestionByIdQuery } = questionsApi;

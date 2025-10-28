@@ -2,6 +2,7 @@ import { RatingAndDifficulty } from "@/shared/questions";
 import styles from "./styles.module.css";
 import { useState, useRef, useEffect } from "react";
 import type { IQuestion } from "../model/questionsType";
+import { QuestionMoreDetails } from "@/features";
 
 interface QuestionProp {
   question: IQuestion;
@@ -39,12 +40,15 @@ const Question = ({ question }: QuestionProp) => {
           style={{ maxHeight: height }}
         >
           <div className={styles.question_inner}>
-            <div className={styles.question_rating}>
-              <RatingAndDifficulty title="Рейтинг" number={question.rate} />
-              <RatingAndDifficulty
-                title="Сложность"
-                number={question.complexity}
-              />
+            <div className={styles.question_ratingBlock}>
+              <div className={styles.question_rating}>
+                <RatingAndDifficulty title="Рейтинг" number={question.rate} />
+                <RatingAndDifficulty
+                  title="Сложность"
+                  number={question.complexity}
+                />
+              </div>
+              <QuestionMoreDetails id={question.id} />
             </div>
             {question.imageSrc && (
               <div>

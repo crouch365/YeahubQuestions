@@ -1,0 +1,19 @@
+.block {
+  position: relative;
+}
+
+.btn_more {
+  font-size: 25px;
+}
+
+.block_more {
+  position: absolute;
+  font-size: 12px;
+  padding: 5px;
+  background-color: #cecccc;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 5px;
+  right: 5px;
+  cursor: pointer;
+}

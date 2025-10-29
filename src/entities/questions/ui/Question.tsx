@@ -55,7 +55,10 @@ const Question = ({ question }: QuestionProp) => {
                 <img src={question.imageSrc} alt={question.title} />
               </div>
             )}
-            <div dangerouslySetInnerHTML={{ __html: question.shortAnswer }} />
+            <div
+              className={styles.answerContent}
+              dangerouslySetInnerHTML={{ __html: question.shortAnswer }}
+            />
           </div>
         </div>
       </div>

@@ -11,13 +11,6 @@ const QuestionList = () => {
 
   const { data } = useGetQuestionsQuery({ page: currentPage, limit });
 
-  //   const navigateTo = (news: INews) => {
-  //   dispatch(setCurrentNews(news));
-  //   navigate(`/news/${news.id}`);
-  // };
-
-  console.log(data);
-
   return (
     <div className={styles.question__block}>
       <ul className={styles.question__list}>

@@ -1,5 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { ParamsType, QuestionsApiResponse } from "../model/questionsType";
+import type {
+  IQuestion,
+  ParamsType,
+  QuestionsApiResponse,
+} from "../model/questionsType";
 import { getQuestions } from "../model/questionsSlice";
 
 const BASE_URL = import.meta.env.VITE_QUESTIONS_BASE_URL;
@@ -31,7 +35,7 @@ export const questionsApi = createApi({
         }
       },
     }),
-    getQuestionById: build.query<QuestionsApiResponse, number>({
+    getQuestionById: build.query<IQuestion, number>({
       query: (id) => `questions/public-questions/${id}`,
     }),
   }),

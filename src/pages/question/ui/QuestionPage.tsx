@@ -7,39 +7,46 @@ const QuestionPage = () => {
   const navigate = useNavigate();
   const { data, isLoading, isError } = useGetQuestionByIdQuery(Number(id));
 
-  if (isLoading) return <div>Загружаем данные .......</div>;
-
   if (isError) return <div>Произошла ошибка, обновите страницу</div>;
 
   return (
     <div className={styles.questionBlock}>
-      <div className={styles.blockTitle}>
-        <h2 className={styles.titleQuestion}>{data?.title}</h2>
-        <p className={styles.description}>{data?.description}</p>
-      </div>
+      {isLoading ? (
+        <div className={styles.loaderBlock}>
+          <img className={styles.loaderImg} src="/img/loader.png" alt="" />
+          <h2>Загружаем данные . . .</h2>
+        </div>
+      ) : (
+        <>
+          <div className={styles.blockTitle}>
+            <h2 className={styles.titleQuestion}>{data?.title}</h2>
+            <p className={styles.description}>{data?.description}</p>
+          </div>
 
-      <div className={styles.blockTitle}>
-        <h2 className={styles.title}>Краткий ответ</h2>
-        {data && data.shortAnswer ? (
-          <div
-            className={styles.answerContent}
-            dangerouslySetInnerHTML={{ __html: data.shortAnswer }}
-          />
-        ) : null}
-      </div>
-      <div className={styles.blockTitle}>
-        <h2 className={styles.title}>Полный ответ</h2>
-        {data && data.longAnswer ? (
-          <div
-            className={styles.answerContent}
-            dangerouslySetInnerHTML={{ __html: data.longAnswer }}
-          />
-        ) : null}
-      </div>
+          <div className={styles.blockTitle}>
+            <h2 className={styles.title}>Краткий ответ</h2>
+            {data && data.shortAnswer ? (
+              <div
+                className={styles.answerContent}
+                dangerouslySetInnerHTML={{ __html: data.shortAnswer }}
+              />
+            ) : null}
+          </div>
+          <div className={styles.blockTitle}>
+            <h2 className={styles.title}>Полный ответ</h2>
+            {data && data.longAnswer ? (
+              <div
+                className={styles.answerContent}
+                dangerouslySetInnerHTML={{ __html: data.longAnswer }}
+              />
+            ) : null}
+          </div>
 
-      <button className={styles.btn} onClick={() => navigate(-1)}>
-        Назад
-      </button>
+          <button className={styles.btn} onClick={() => navigate(-1)}>
+            Назад
+          </button>
+        </>
+      )}
     </div>
   );
 };

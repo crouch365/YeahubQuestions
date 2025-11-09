@@ -1,0 +1,49 @@
+.formContainer {
+  padding: 16px;
+}
+
+.formBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputCheckBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.specializationList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.specButton {
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.specButton:hover {
+  background: #f2f2f2;
+}
+
+.specButton.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.showMoreBtn {
+  margin-top: 8px;
+  color: #007bff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}

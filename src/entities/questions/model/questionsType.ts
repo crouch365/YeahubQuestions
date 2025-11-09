@@ -22,6 +22,7 @@ export interface QuestionsApiResponse {
 export interface IFilters {
   page: number;
   limit: number;
+  specializationId?: number[];
 }
 
 export type ParamsType = Partial<IFilters>;

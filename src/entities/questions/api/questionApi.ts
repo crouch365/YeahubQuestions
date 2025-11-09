@@ -6,7 +6,7 @@ import type {
 } from "../model/questionsType";
 import { getQuestions } from "../model/questionsSlice";
 
-const BASE_URL = import.meta.env.VITE_QUESTIONS_BASE_URL;
+export const BASE_URL = import.meta.env.VITE_QUESTIONS_BASE_URL;
 
 export const questionsApi = createApi({
   reducerPath: "questionsApi",

@@ -1,0 +1,14 @@
+.mainContainer {
+  margin: 10px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 65% 35%;
+}
+
+@media (max-width: 600px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+}

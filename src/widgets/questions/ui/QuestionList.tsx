@@ -4,21 +4,22 @@ import styles from "./styles.module.css";
 import { Question } from "@/entities/questions";
 import { Pagination } from "@/features";
 import { useAppSelector } from "@/app/appStore";
+import { filtersSelectors } from "@/features/filters/model/filterSelector";
 
 const QuestionList = () => {
-  const limit = 10;
-  const currentPage = useAppSelector((state) => state.pagination.currentPage);
+  const params = useAppSelector(filtersSelectors.selectQuestionFilterParams);
+  const limit = useAppSelector(filtersSelectors.selectFilterLimit);
 
-  const { data } = useGetQuestionsQuery({ page: currentPage, limit });
+  const { data: questions } = useGetQuestionsQuery(params);
 
   return (
     <div className={styles.question__block}>
       <ul className={styles.question__list}>
-        {data?.data.map((question) => (
+        {questions?.data.map((question) => (
           <Question key={question.id} question={question} />
         ))}
       </ul>
-      <Pagination total={data?.total ?? 0} limit={limit} />{" "}
+      <Pagination total={questions?.total ?? 0} limit={limit} />{" "}
     </div>
   );
 };

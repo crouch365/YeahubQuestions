@@ -1,10 +1,8 @@
 import { questionsApi } from "@/entities/questions/api/questionApi";
-import questionsReducer from "@/entities/questions/model/questionsSlice";
-import { paginationSliceReducer } from "@/features/pagination/model/paginationSlice";
+import { filterReducer } from "@/features/filters";
 import { combineReducers } from "@reduxjs/toolkit";
 
 export const rootReducer = combineReducers({
-  questions: questionsReducer,
+  filterForQuestions: filterReducer,
   [questionsApi.reducerPath]: questionsApi.reducer,
-  pagination: paginationSliceReducer,
 });

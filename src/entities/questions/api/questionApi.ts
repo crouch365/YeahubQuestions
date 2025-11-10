@@ -4,7 +4,6 @@ import type {
   ParamsType,
   QuestionsApiResponse,
 } from "../model/questionsType";
-import { getQuestions } from "../model/questionsSlice";
 
 export const BASE_URL = import.meta.env.VITE_QUESTIONS_BASE_URL;
 
@@ -17,22 +16,12 @@ export const questionsApi = createApi({
     getQuestions: build.query<QuestionsApiResponse, ParamsType>({
       keepUnusedDataFor: 0,
       query: (params) => {
-        const { page = 1, limit = 10 } = params || {};
         return {
           url: "questions/public-questions",
           params: {
-            page,
-            limit,
+            ...params,
           },
         };
-      },
-      async onQueryStarted(_arg, { dispatch, queryFulfilled }) {
-        try {
-          const { data } = await queryFulfilled;
-          dispatch(getQuestions(data.data));
-        } catch (error) {
-          console.error("Ошибка при загрузке вопросов:", error);
-        }
       },
     }),
     getQuestionById: build.query<IQuestion, number>({

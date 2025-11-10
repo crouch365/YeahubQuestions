@@ -26,3 +26,13 @@ export interface IFilters {
 }
 
 export type ParamsType = Partial<IFilters>;
+
+export interface GetQuestionsParams {
+  page?: number;
+  limit?: number;
+  keywords?: string[];
+  specialization?: number;
+  rate?: number[];
+  skills?: number[];
+  complexity?: number[];
+}

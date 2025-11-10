@@ -1,5 +1,8 @@
-import { usePagination } from "@/shared/hooks/usePagination";
+// пойми как это работает?
+
+import { useAppDispatch, useAppSelector } from "@/app/appStore";
 import styles from "./styles.module.css";
+import { filterAction } from "@/features/filters";
 
 interface PaginationProp {
   total: number;
@@ -7,10 +10,16 @@ interface PaginationProp {
 }
 
 const Pagination = ({ total, limit }: PaginationProp) => {
-  const { currentPage, changePage } = usePagination();
+  const dispatch = useAppDispatch();
+  const currentPage = useAppSelector((state) => state.filterForQuestions.page);
   const totalPages = Math.ceil(total / limit);
 
   if (totalPages <= 1) return null;
+  const changePage = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      dispatch(filterAction.setPage(page));
+    }
+  };
 
   const pages: (number | string)[] = [];
   const maxVisiblePages = 5;

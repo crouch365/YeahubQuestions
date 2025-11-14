@@ -2,12 +2,18 @@ import { questionsApi } from "@/entities/questions/api/questionApi";
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { rootReducer } from "./appReduser";
+import { specializationApi } from "@/entities/specialization";
+import { skillsApi } from "@/entities/skills/api/skillsApi";
 
 export const store = configureStore({
   reducer: rootReducer,
 
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(questionsApi.middleware),
+    getDefaultMiddleware().concat(
+      questionsApi.middleware,
+      specializationApi.middleware,
+      skillsApi.middleware
+    ),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

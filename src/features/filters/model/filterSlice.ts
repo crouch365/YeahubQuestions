@@ -33,17 +33,17 @@ const filterSlice = createSlice({
     setRating: (state, { payload }: PayloadAction<number>) => {
       const rate = state.rateIds.indexOf(payload);
       if (rate >= 0) state.rateIds.splice(rate, 1);
-      else state.rateIds.push(rate);
+      else state.rateIds.push(payload);
     },
     setSkills: (state, { payload }: PayloadAction<number>) => {
-      const skill = state.rateIds.indexOf(payload);
-      if (skill >= 0) state.rateIds.splice(skill, 1);
-      else state.rateIds.push(skill);
+      const skill = state.skillsIds.indexOf(payload);
+      if (skill >= 0) state.skillsIds.splice(skill, 1);
+      else state.skillsIds.push(payload);
     },
     setComplexity: (state, { payload }: PayloadAction<number>) => {
-      const complexity = state.rateIds.indexOf(payload);
-      if (complexity >= 0) state.rateIds.splice(complexity, 1);
-      else state.rateIds.push(complexity);
+      const complexity = state.complexityIds.indexOf(payload);
+      if (complexity >= 0) state.complexityIds.splice(complexity, 1);
+      else state.complexityIds.push(payload);
     },
     resetFilter: () => {
       return INITIAL_STATE_FOR_FILTER_QUESTIONS;

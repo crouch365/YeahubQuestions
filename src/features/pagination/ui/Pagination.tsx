@@ -3,6 +3,7 @@
 import { useAppDispatch, useAppSelector } from "@/app/appStore";
 import styles from "./styles.module.css";
 import { filterAction } from "@/features/filters";
+import { filtersSelectors } from "@/features/filters/model/filterSelector";
 
 interface PaginationProp {
   total: number;
@@ -11,7 +12,7 @@ interface PaginationProp {
 
 const Pagination = ({ total, limit }: PaginationProp) => {
   const dispatch = useAppDispatch();
-  const currentPage = useAppSelector((state) => state.filterForQuestions.page);
+  const currentPage = useAppSelector(filtersSelectors.selectFilterPage);
   const totalPages = Math.ceil(total / limit);
 
   if (totalPages <= 1) return null;

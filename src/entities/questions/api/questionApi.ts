@@ -19,6 +19,7 @@ export const questionsApi = createApi({
         return {
           url: "questions/public-questions",
           params: {
+            skillFilterMode: "ANY",
             ...params,
           },
         };

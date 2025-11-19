@@ -1,3 +1,3 @@
-import NotFound from "./ui/NotFound";
+import { default as NotFound } from "./ui/NotFound";
 
 export { NotFound };

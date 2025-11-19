@@ -1,3 +1,7 @@
+import type {
+  SkillsApiResponse,
+  SkillsParamsType,
+} from "@/entities/skills/model/skillsType";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const BASE_URL = import.meta.env.VITE_QUESTIONS_BASE_URL;
@@ -8,7 +12,7 @@ export const specializationApi = createApi({
     baseUrl: BASE_URL,
   }),
   endpoints: (build) => ({
-    getSpecialization: build.query({
+    getSpecialization: build.query<SkillsApiResponse, SkillsParamsType>({
       query: (params) => {
         return {
           url: "specializations",

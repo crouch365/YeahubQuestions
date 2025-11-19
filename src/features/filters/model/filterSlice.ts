@@ -29,6 +29,8 @@ const filterSlice = createSlice({
     setSpecialization: (state, { payload }: PayloadAction<number>) => {
       state.specializationId = payload;
       state.skillsIds = [];
+      state.complexityIds = [];
+      state.rateIds = [];
     },
     setRating: (state, { payload }: PayloadAction<number>) => {
       const rate = state.rateIds.indexOf(payload);

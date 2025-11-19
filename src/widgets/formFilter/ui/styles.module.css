@@ -1,64 +1,13 @@
 .formContainer {
-  margin: 0 10px;
-  padding: 16px;
-  background-color: #fff;
-  border-radius: 20px;
+  width: 100%;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
 }
 
 .formBlock {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-}
-
-.inputCheckBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.specializationList {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  gap: 8px;
-}
-
-.specializationBlock {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 6px 12px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #000;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
-}
-
-.label:hover {
-  border-color: #888888;
-}
-
-.input {
-  display: none;
-}
-
-.input:checked + .label {
-  border-color: #6a0bff;
+  gap: 20px;
 }

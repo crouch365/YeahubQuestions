@@ -36,11 +36,6 @@ const selectFilterSpecialization = (state: RootState) =>
 const selectFilterSkills = (state: RootState) =>
   state.filterForQuestions.skillsIds;
 
-const selectSkillSpecializations = createSelector(
-  [selectQuestionFilterParams],
-  (filters) => (filters.specialization ? [filters.specialization] : [])
-);
-
 const selectFilterComplexity = (state: RootState) =>
   state.filterForQuestions.complexityIds;
 
@@ -52,7 +47,6 @@ export const filtersSelectors = {
   selectFilterLimit,
   selectFilterKeywords,
   selectFilterSpecialization,
-  selectSkillSpecializations,
   selectFilterRate,
   selectFilterSkills,
   selectFilterComplexity,

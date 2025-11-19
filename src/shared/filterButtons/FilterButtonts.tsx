@@ -18,7 +18,7 @@ interface FilterButtonsProps<T extends Entity> {
 const FilterButtons = ({
   entities = [],
   type,
-  selected,
+  selected = [],
   title,
   onChange,
   maxVisible = 5,

@@ -1,5 +1,3 @@
-//вероятно нужно вынести картинку как ui
-
 import styles from "./styles.module.css";
 
 const NotFound = () => {

@@ -1,9 +1,9 @@
 import { useGetQuestionsQuery } from "@/entities/questions/api/questionApi";
 import styles from "./styles.module.css";
 import { Question } from "@/entities/questions";
-import { Pagination } from "@/features";
 import { useAppSelector } from "@/app/appStore";
 import { filtersSelectors } from "@/features/filters-questions/model/filterSelector";
+import Pagination from "@/shared/pagination/ui/Pagination";
 
 const QuestionList = () => {
   const params = useAppSelector(filtersSelectors.selectQuestionFilterParams);

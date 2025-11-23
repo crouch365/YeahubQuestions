@@ -5,7 +5,7 @@ import {
   FilterSkills,
   FilterSpecializations,
   SearchKeywords,
-} from "@/features/filters";
+} from "@/features/filters-questions";
 
 const FormFilter = () => {
   return (

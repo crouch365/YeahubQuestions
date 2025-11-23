@@ -1,8 +1,7 @@
-import { RatingAndDifficulty } from "@/shared/questions";
+import { QuestionMoreDetails, RatingAndDifficulty } from "@/shared/questions";
 import styles from "./styles.module.css";
 import { useState, useRef, useEffect } from "react";
 import type { IQuestion } from "../model/questionsType";
-import { QuestionMoreDetails } from "@/features";
 
 interface QuestionProp {
   question: IQuestion;

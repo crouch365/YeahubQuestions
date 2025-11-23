@@ -1,15 +1,14 @@
 import { useGetQuestionsQuery } from "@/entities/questions/api/questionApi";
-
 import styles from "./styles.module.css";
 import { Question } from "@/entities/questions";
 import { Pagination } from "@/features";
 import { useAppSelector } from "@/app/appStore";
-import { filtersSelectors } from "@/features/filters/model/filterSelector";
+import { filtersSelectors } from "@/features/filters-questions/model/filterSelector";
 
 const QuestionList = () => {
   const params = useAppSelector(filtersSelectors.selectQuestionFilterParams);
   const limit = useAppSelector(filtersSelectors.selectFilterLimit);
-
+  const currentPages = useAppSelector(filtersSelectors.selectFilterPage);
   const { data: questions } = useGetQuestionsQuery(params);
 
   return (
@@ -19,7 +18,11 @@ const QuestionList = () => {
           <Question key={question.id} question={question} />
         ))}
       </ul>
-      <Pagination total={questions?.total ?? 0} limit={limit} />{" "}
+      <Pagination
+        currentPages={currentPages}
+        total={questions?.total ?? 0}
+        limit={limit}
+      />
     </div>
   );
 };

@@ -1,17 +1,11 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type {
   IQuestion,
   ParamsType,
   QuestionsApiResponse,
 } from "../model/questionsType";
+import { baseApi } from "@/shared/api/baseApi";
 
-export const BASE_URL = import.meta.env.VITE_QUESTIONS_BASE_URL;
-
-export const questionsApi = createApi({
-  reducerPath: "questionsApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: BASE_URL,
-  }),
+export const questionsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getQuestions: build.query<QuestionsApiResponse, ParamsType>({
       keepUnusedDataFor: 0,

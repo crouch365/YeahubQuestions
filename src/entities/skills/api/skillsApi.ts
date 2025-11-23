@@ -1,13 +1,7 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { SkillsParamsType, SkillsApiResponse } from "../model/skillsType";
+import { baseApi } from "@/shared/api/baseApi";
 
-export const BASE_URL = import.meta.env.VITE_QUESTIONS_BASE_URL;
-
-export const skillsApi = createApi({
-  reducerPath: "skillsApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: BASE_URL,
-  }),
+export const skillsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getSkills: build.query<SkillsApiResponse, SkillsParamsType>({
       query: (params) => {

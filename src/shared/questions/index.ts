@@ -1,3 +1,4 @@
-import RatingAndDifficulty from "./ui/RatingAndDifficulty";
+import QuestionMoreDetails from "./moreDetails/ui/QuestionMoreDetails";
+import RatingAndDifficulty from "./rateAndDiff/ui/RatingAndDifficulty";
 
-export { RatingAndDifficulty };
+export { RatingAndDifficulty, QuestionMoreDetails };

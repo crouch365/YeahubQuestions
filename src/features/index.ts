@@ -1,3 +1,3 @@
-import Pagination from "./pagination/ui/Pagination";
+import Pagination from "../shared/pagination/ui/Pagination";
 
 export { Pagination };
